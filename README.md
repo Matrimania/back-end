@@ -21,6 +21,8 @@ Links for both applications can be found below:
 
 ## Learning Goals
 
+The purpose of this capstone project was to work across programs and build a more polished application using knowledge gained throughout Turing. Another important learning goal was to explore and implement new concepts and technologies not taught at Turing.
+
 ## Contributors
 
 ### Backend Team
@@ -226,6 +228,20 @@ Example Response:
 ]
 ```
 
+### Delete a wedding
+
+Example Request:
+```
+GET /api/v1/weddings/remove/?wedding=2
+```
+
+### Delete a wedding
+
+Example Request:
+```
+GET /api/v1/weddings/remove_guest/?guest=2
+```
+
 ## Future Iterations
 
   * Consume Twilio API to send SMS notifications to guests to inform them of which photo numbers they are in
@@ -234,7 +250,12 @@ Example Response:
 
 ## Local Development Setup
 
-1. Download Docker desktop
+1. Download Docker desktop and make sure it's been opened and running
 2. Clone down this repository on your local machine
-3. Execute the following commands one by one in this order:
+3. Execute the following commands in this order:
   * `docker-compose build`
+  * `docker-compose run app sh -c "python manage.py migrate"`
+  * `docker-compose up`
+4. You should then be able to visit `http://localhost:8000/` and hit all the endpoints
+5. To run tests use the command `docker-compose run app sh -c "python manage.py test"`
+6. To run tests with linting use the command `docker-compose run app sh -c "python manage.py test" && flake8`
