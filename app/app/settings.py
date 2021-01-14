@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'core',
     'wedding',
     'corsheaders',
+    'django_nose',
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=core,wedding'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
